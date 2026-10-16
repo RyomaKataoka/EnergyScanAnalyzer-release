@@ -1,0 +1,50 @@
+THIRD_PARTY_NOTICES.txt
+=======================
+
+EnergyScanAnalyzer 本体には独自の利用規約を適用します（LICENSE を参照）。
+配布するアプリのフォルダ（EnergyScanAnalyzer.exe と _internal）は PyInstaller で作成したもので、
+次の第三者ソフトウェアを含みます。各ライセンスの全文は licenses フォルダにあります。
+licenses/PACKAGES.txt はビルド環境の全パッケージの一覧で、pip・setuptools・PyInstaller の補助パッケージなど、
+ビルドにだけ使ったものも含みます。
+
+1. Python 3.14
+   - ライセンス: PSF License Agreement
+   - 全文: licenses/Python-<版>-LICENSE.txt
+
+2. Qt と Qt for Python（PySide6、shiboken6）
+   - バージョン: 6.12.0
+   - 選択したライセンス: GNU Lesser General Public License v3.0（LGPL-3.0-only）
+     （PyPI のメタデータ: "LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only"。本アプリは LGPL-3.0 を選択）
+   - 全文: licenses/LGPL-3.0.txt、licenses/GPL-3.0.txt（LGPL-3.0 は GPL-3.0 への追加条項のため、両方を同梱）
+   - Qt のライブラリは改変せず、公式 PyPI のホイールのものを、個別の DLL としてアプリのフォルダ
+     （_internal\PySide6）に置いています（フォルダ形式の配布）。利用者は、互換性のある版に差し替えることができます。
+     利用規約（LICENSE）第 3 条のとおり、これらのライブラリの改変・差し替えと、そのデバッグに必要な
+     リバースエンジニアリングは禁止していません。
+   - 本アプリが使わない Qt の部品（Qt Quick・QML・Network・Pdf・OpenGL・仮想キーボードなど）は同梱していません。
+   - ソースコードの入手先: https://download.qt.io/official_releases/QtForPython/ および https://code.qt.io/
+   - Qt が内部で使っている第三者のコンポーネントとそのライセンス: https://doc.qt.io/qt-6/licenses-used-in-qt.html
+   - PySide6 のパッケージに含まれる LicenseRef-Qt-Commercial.txt は商用ライセンスの条件を示すもので、
+     本アプリは商用ライセンスを使用していません。
+
+3. lmfit 1.3.4（BSD-3-Clause）と、その依存の asteval（MIT）、dill（BSD-3-Clause）、uncertainties（BSD 系）
+   - 全文: licenses/lmfit-LICENSE.txt、licenses/<パッケージ名>-<版>/
+
+4. SciPy 1.18.1（BSD-3-Clause。同梱コンポーネントの表示を含む）
+   - 全文: licenses/scipy-LICENSE.txt、licenses/scipy-1.18.1/
+
+5. NumPy 2.5.4（BSD-3-Clause ほか。同梱コンポーネントの表示を含む）
+   - 全文: licenses/numpy-LICENSE.txt、licenses/numpy-2.5.4/
+
+6. Matplotlib 3.11.2（Matplotlib License、PSF 型）と、その依存
+   - ContourPy（BSD-3-Clause）、Cycler（BSD 系）、fontTools（MIT）、Kiwi（BSD 系）、packaging（Apache-2.0 または BSD-2-Clause）、
+     Pillow（MIT-CMU）、pyparsing（MIT）、python-dateutil（Apache-2.0 / BSD-3-Clause）、six（MIT）
+   - 全文: licenses/matplotlib-LICENSE.txt、licenses/<パッケージ名>-<版>/
+
+7. PyInstaller 6.22.3（ブートローダー）
+   - ライセンス: GPL-2.0-or-later（ブートローダー例外付き。作成したアプリの配布は制限されない）
+   - 全文: licenses/pyinstaller-6.22.3/
+
+開発・テスト時のみに使用し、配布物には含めないもの: pytest、pytest-qt。
+
+注意: 本文書は使用パッケージのメタデータ（インストール済み環境）に基づきます。
+ライセンス条件の法的解釈は、配布前に確認してください。
